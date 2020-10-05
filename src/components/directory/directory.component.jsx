@@ -1,5 +1,7 @@
 import React from 'react';
 
+import MenuItem from '../menu-item/menu-item.component';
+
 class Directory extends React.Component {
   constructor() {
     super();
@@ -35,5 +37,15 @@ class Directory extends React.Component {
     }
   }
 
+
+render(){
+  return(
+    <div className="directort-menu">
+      {
+        this.state.section()
+      }
+    </div>
+  )
+}
 
 }
