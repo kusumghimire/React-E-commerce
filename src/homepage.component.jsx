@@ -14,7 +14,7 @@ const HomePage = () => (
           <h1 className="title">Jackets</h1>
           <span className="subtitle">SHOP NOW</span>
         </div>
-      </div>
+        npm install -g sass  </div>
           <div className="menu-item">
         <div className="content">
           <h1 className="title">Women</h1>
