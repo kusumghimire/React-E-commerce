@@ -8,10 +8,9 @@
   border: 1px solid black;
   margin: 0 7.5px 15px;
 
-
-  &.large{
+  &.large {
     height: 380px;
-    @media only screen and(max-width:680px){
+    @media only screen and(max-width:680px) {
       height: 240px;
     }
   }
@@ -22,12 +21,12 @@
   &:last-child {
     margin-left: 7.5px;
   }
-.background-image{
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-}
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
   .content {
     height: 90px;
     padding: 0 25px;
@@ -38,6 +37,7 @@
     border: 1px solid black;
     background-color: #fff;
     opacity: 0.7;
+    position: absolute;
 
     .title {
       font-weight: bold;
