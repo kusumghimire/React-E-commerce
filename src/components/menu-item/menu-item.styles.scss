@@ -12,6 +12,9 @@
 
   &.large{
     height: 380px;
+    @media only screen and(max-width:680px){
+      height: 240px;
+    }
   }
   &:first-child {
     margin-right: 7.5px;
