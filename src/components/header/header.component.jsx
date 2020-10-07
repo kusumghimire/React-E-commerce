@@ -5,6 +5,8 @@ import './header.styles.scss';
 
 const Header = () => (
 <div className="header">
-
+<Link to="/">
+    
+</Link>
 </div>
 )
