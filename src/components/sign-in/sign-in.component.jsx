@@ -30,7 +30,7 @@ class SignIn extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <input type="email" name="email" onChange={this.handleChange} value={this.state.email} required />
           <label type="email">Email</label>
-          <input type="password" name="password" value="this.state.email" onChange={this.handleChange} required />
+          <input type="password" name="password" value="{this.state.email}" onChange={this.handleChange} required />
           <input type="submit" value="Submit Form" />
         </form>
 
