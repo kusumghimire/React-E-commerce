@@ -17,14 +17,20 @@ class SignIn extends React.Component {
     this.setState({ email: '', password: '' })
   }
 
+  handleChange = event => {
+    const { value, name } = event.target;
+    this.setState({ [name]: value })
+  }
+
   render() {
     return (
       <div className="sign-in">
         <h2>I already have an account</h2>
         <span>Sign in with your email and password </span>
-        <form onSubmit={this, handleSubmit}>
-          <input type="email" name="email" value={this.state.email} required />
+        <form onSubmit={this.handleSubmit}>
+          <input type="email" name="email" onChange={this.handleChange} value={this.state.email} required />
           <Label htmlFor="email">Email</Label>
+          <input type="password" name="password" value="this.state.email" onChange={this.handleChange} required />
           <input type="submit" value="Submit Form" />
         </form>
 
@@ -32,3 +38,5 @@ class SignIn extends React.Component {
     )
   }
 }
+
+export default SignIn;
