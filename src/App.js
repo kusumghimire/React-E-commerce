@@ -18,14 +18,30 @@ class App extends React.Component {
         };
     }
 
-    unsubscribeFromAuth = null
+    unsubscribeFromAuth = null;
 
     componentDidMount() {
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-            this.setState({ currentUser: user });
-            console.log(user);
+        this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+            if (userAuth) {
+                const userRef = await createUserProfileDocument(userAuth);
+
+                userRef.onSnapshot(snapShot => {
+                    this.setState({
+                        currentUser: {
+                            id: snapShot.id,
+                            ...snapShot.data()
+                        }
+                    });
+
+                    console.log(this.state);
+                });
+            }
+
+            this.setState({ currentUser: userAuth });
         });
     }
+
+
     componentWillUnmount() {
         this.unsubscribeFromAuth();
     }
@@ -35,7 +51,7 @@ class App extends React.Component {
             div >
             <
             Header currentUser = { this.state.currentUser }
-            / > <
+            /> <
             Switch >
             <
             Route exact path = '/'
@@ -46,8 +62,8 @@ class App extends React.Component {
             /> <
             Route path = '/signin'
             component = { SignInAndSignUpPage }
-            /> < /
-            Switch > <
+            /> <
+            /Switch> <
             /div>
         );
     }
