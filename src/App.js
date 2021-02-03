@@ -48,9 +48,10 @@ class App extends React.Component {
         return ( <
             div >
             <
-            Header currentUser = { this.state.currentUser }
-            /> <
-            Switch >
+            Header currentUser / >
+            <
+            Switch / >
+
             <
             Route exact path = '/'
             component = { HomePage }
