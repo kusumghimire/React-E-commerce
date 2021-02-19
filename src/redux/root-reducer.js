@@ -5,9 +5,11 @@ import cartReducer from './cart/cart.reducer';
 import directorytReducer from './directory/directory.reducer';
 import shopReducer from './shop/shop.reducer'
 
-export default combineReducers({
+const rootReducer= combineReducers({
     user: userReducer,
     cart: cartReducer,
     directory: directorytReducer,
     shop : shopReducer
 });
+
+export default rootReducer;
