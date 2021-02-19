@@ -4,10 +4,12 @@ import CollectionItem from '../../components/collection-items/collection-items.c
 
 import './category.styles.scss';
 
-const CategoryPage =() =>(
+const CategoryPage =({match}) =>{
+    console.log(match);
+    return(
 <div className="category">
     <h2>CATEGORY PAGE</h2>
 </div>
-);
+)};
 
 export default CategoryPage;
