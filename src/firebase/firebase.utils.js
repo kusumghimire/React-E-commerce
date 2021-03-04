@@ -28,8 +28,8 @@ export const createUserProfileDocument = async(userAuth, additionalData) => {
         const createdAt = new Date();
         try {
             await userRef.set({
-                displayName,
-                email,
+                displayName: 'Test User',
+                email : 'ramdomEmail@gmail.com',
                 createdAt,
                 ...additionalData
             });

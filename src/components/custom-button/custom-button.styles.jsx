@@ -30,7 +30,7 @@ color: #fff;
 `;
 
 const getButtonStyles = props => {
-    if (props.googleSignIn) {
+    if (props.isgoogleSignIn) {
         return googleSignInStyles;
     }
 
