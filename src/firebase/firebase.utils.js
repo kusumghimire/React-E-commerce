@@ -32,8 +32,8 @@ export const createUserProfileDocument = async(userAuth, additionalData) => {
         const createdAt = new Date();
         try {
             await userRef.set({
-                displayName: 'Test User',
-                email : 'ramdomEmail@gmail.com',
+                displayName,
+                email,
                 createdAt,
                 ...additionalData
             });
@@ -44,6 +44,10 @@ export const createUserProfileDocument = async(userAuth, additionalData) => {
 
     return userRef;
 };
+
+export const addCollectionAndItems = (collectionKey, objectsToAdd) =>{
+    const collectionRef = firestore.collection(collectionKey);
+}
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
