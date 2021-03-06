@@ -56,7 +56,7 @@ export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
         const newDocRef = collectionRef.doc();
         batch.set(newDocRef, obj);
     });
- return await batch.commit();
+ return batch.commit();
 };
 
 export const auth = firebase.auth();
