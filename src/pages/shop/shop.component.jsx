@@ -8,8 +8,10 @@ class ShopPage extends React.component {
   unsubscribeFromSnapshot = null;
 
   componentDidMount() {
-    const collectionRef = firestore.collection('collections');
-    collectionRef.onSnapshot(async snapshot)
+    const collectionRef = firestore .collection('collections');
+    collectionRef.onSnapshot(async snapshot => {
+      console.log(snapshot);
+    });
   }
 
   render() {

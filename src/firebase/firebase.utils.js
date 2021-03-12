@@ -56,7 +56,23 @@ export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
         const newDocRef = collectionRef.doc();
         batch.set(newDocRef, obj);
     });
- return batch.commit();
+    return batch.commit();
+};
+
+export const convertCollectionSnapshotToMap = (collections) => {
+    const transformedCollection = collections.doc.map(doc => {
+        const { title, items } = doc.data();
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            items
+        }
+    });
+    return transformedCollection.redux((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {});
 };
 
 export const auth = firebase.auth();
