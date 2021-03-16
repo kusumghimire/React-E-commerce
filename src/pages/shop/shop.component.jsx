@@ -13,7 +13,7 @@ import CollectionsOverview from '../../components/collections-overview/collectio
 import CollectionPage from '../collection/collection.component';
 
 const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
-
+const COllectionPageWithSpinner = WithSpinner(CollectionPage);
 class ShopPage extends React.Component {
   state = {
     loading: true
@@ -32,10 +32,11 @@ class ShopPage extends React.Component {
 
   render() {
     const { match } = this.props;
+    const {loading} = this.state;
     return (
       // ({match}) => (
       <div className='shop-page'>
-        <Route exact path={`${match.path}`} component={CollectionsOverview} />
+        <Route exact path={`${match.path}`} render = {(props)=> <CollectionsOverviewWithSpinner  isLoading={} />}
         <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
       </div>
       // );
