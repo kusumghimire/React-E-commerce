@@ -2,15 +2,19 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
-import CollectionPage from '../collection/collection.component';
-
 import { firestore,
   convertCollectionSnapshotToMap
- } from '../../firebase/firebase.utils';
+} from '../../firebase/firebase.utils';
+
 import { updateCollections } from '../../redux/shop/shop.actions';
-class ShopPage extends React.component {
-  unsubscribeFromSnapshot = null;
+import WithSpinner from '../../components/with-spinner/with-spinner.component';
+
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
+import CollectionPage from '../collection/collection.component';
+class ShopPage extends React.Component {
+  state = {
+    loading: true
+  };
 
   componentDidMount() {
   const {updateCollections} = this.props;
