@@ -11,6 +11,9 @@ import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
 import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import CollectionPage from '../collection/collection.component';
+
+const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
+
 class ShopPage extends React.Component {
   state = {
     loading: true
