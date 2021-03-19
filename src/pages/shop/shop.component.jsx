@@ -24,11 +24,16 @@ class ShopPage extends React.Component {
 
     const collectionRef = firestore .collection('collections');
 
-    collectionRef.get(snapshot => {
-      const collectionsMap = convertCollectionSnapshotToMap(snapshot);
-      updateCollections(collectionsMap);
-      this.setState({loading: false});
-    });
+fetch('https://firestore.googleapis.com/v1/projects/YOUR_PROJECT_ID/databases/(default)/documents/collections')
+.then(response => response.json)
+
+    // collectionRef.get().then(
+    //   (snapshot => {
+    //     const collectionsMap = convertCollectionSnapshotToMap(snapshot);
+    //     updateCollections(collectionsMap);
+    //     this.setState({loading: false});
+    //   })
+    // );
   }
 
   render() {
