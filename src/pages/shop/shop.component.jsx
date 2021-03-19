@@ -13,7 +13,7 @@ import CollectionsOverview from '../../components/collections-overview/collectio
 import CollectionPage from '../collection/collection.component';
 
 const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
-const COllectionPageWithSpinner = WithSpinner(CollectionPage);
+const CollectionPageWithSpinner = WithSpinner(CollectionPage);
 class ShopPage extends React.Component {
   state = {
     loading: true
@@ -23,7 +23,8 @@ class ShopPage extends React.Component {
   const {updateCollections} = this.props;
 
     const collectionRef = firestore .collection('collections');
-    this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+
+    collectionRef.get(snapshot => {
       const collectionsMap = convertCollectionSnapshotToMap(snapshot);
       updateCollections(collectionsMap);
       this.setState({loading: false});
@@ -36,8 +37,9 @@ class ShopPage extends React.Component {
     return (
       // ({match}) => (
       <div className='shop-page'>
-        <Route exact path={`${match.path}`} render = {(props)=> <CollectionsOverviewWithSpinner  isLoading={} />}
-        <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
+        <Route exact path={`${match.path}`} render = {(props)=> <CollectionsOverviewWithSpinner  isLoading= {loading} {...props} /> }/>
+        <Route path={`${match.path}/:collectionId`} 
+        render = {(props)=> <CollectionPageWithSpinner  isLoading = {loading} {...props} /> }/>
       </div>
       // );
     )
